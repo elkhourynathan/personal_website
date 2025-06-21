@@ -13,7 +13,7 @@ export const portfolioData: Portfolio[] = [
     description:
       "Engineered features and developed an ensemble ML model (XGBoost + Logistic Regression) on historical fight data, achieving 86% accuracy in winner prediction, deployed with a ReactJS frontend and Flask backend for real-time predictions.",
     technologies: ["Pandas", "Scikit-learn", "SQL", "Flask", "ReactJS"],
-    projectUrl: "https://ufc-fight-pred-00326a93d210.herokuapp.com/",
+    // projectUrl: "https://ufc-fight-pred-00326a93d210.herokuapp.com/",
     codeUrl: "https://github.com/elkhourynathan/fight_predictor",
   },
   {
