@@ -20,7 +20,7 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
             </a>
           </div>
         ) : (
-          <div>{experience.company}</div>
+          <div className="text-sm text-zinc-500 italic mt-1">{experience.company}</div>
         )}
         {experience.technologies && (
           <p className="text-xs text-zinc-500 italic mt-1">{experience.technologies}</p>
