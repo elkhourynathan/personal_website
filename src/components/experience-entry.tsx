@@ -6,8 +6,10 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
       <span className="text-xs text-zinc-500 mt-1">{experience.date}</span>
       <div className="col-span-3 flex flex-col">
         <h3 className="text-base font-serif">
-          {experience.title} —{" "}
-          {experience.companyUrl ? (
+          {experience.title}
+        </h3>
+        {experience.companyUrl ? (
+          <div>
             <a
               href={experience.companyUrl}
               className="hover:text-zinc-600 transition-colors"
@@ -16,10 +18,10 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
             >
               {experience.company}
             </a>
-          ) : (
-            experience.company
-          )}
-        </h3>
+          </div>
+        ) : (
+          <div>{experience.company}</div>
+        )}
         {experience.technologies && (
           <p className="text-xs text-zinc-500 italic mt-1">{experience.technologies}</p>
         )}
