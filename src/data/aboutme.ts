@@ -25,7 +25,7 @@ export const aboutMe: AboutMe = {
   description:
     `I'm a focused software engineer with a passion for AI, machine learning, and building technology that solves real-world problems. My skills have been shaped by impactful projects and internships across ML and full-stack development. Outside of tech, I'm interested in finance, reading, Muay Thai, and lifting weights.`,
   email: "elkhourynathan@gmail.com",
-  imageUrl: "/1696050411991.jpeg", // Uses the provided image in public/
+  imageUrl: "/personal_website/1696050411991.jpeg", // Uses the provided image in public/
   githubUsername: "elkhourynathan",
   linkedinUsername: "nathanelkhoury",
   // blogUrl: "", // Optionally add a blog URL
