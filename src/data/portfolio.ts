@@ -35,7 +35,6 @@ export const portfolioData: Portfolio[] = [
     description:
       "Designed a web application that facilitates interaction among various user categories including members, trainers, and administrators. This platform replicates essential functions needed to manage a fitness club, like personal logging, scheduling member and trainer sessions, organizing classes, and maintaining equipment.",
     technologies: ["Python", "PostgreSQL", "Flask"],
-    imageUrl: "/images/health_fitness_management.png",
     codeUrl: "https://github.com/elkhourynathan/comp3005_project_v2",
   },
   {
@@ -43,7 +42,6 @@ export const portfolioData: Portfolio[] = [
     description:
       "Created a web application that enables users to register or log in and monitor intricate workout routines, encompassing varied exercise plans, specific sets, repetitions, and weights. This application helps users precisely track their fitness journey and observe their progress over time.",
     technologies: ["MongoDB", "Expressjs", "ReactJS", "NodeJS"],
-    imageUrl: "/images/wrkpr_login.png",
     codeUrl: "https://github.com/elkhourynathan/workouttracker_wrkpr",
   },
   {
@@ -58,7 +56,6 @@ export const portfolioData: Portfolio[] = [
     description:
       "Created a python application which takes in infared image frames and detects heat signatures.",
     technologies: ["Python", "Pygame"],
-    imageUrl: "/images/marked_target.png",
     codeUrl: "https://github.com/elkhourynathan/python-detectheat",
   },
 ];
