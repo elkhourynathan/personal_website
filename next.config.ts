@@ -5,9 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Uncomment and set these if deploying to a subpath:
-  // basePath: '/personal_website',
-  // assetPrefix: '/personal_website/',
+  basePath: '/personal_website',
+  assetPrefix: '/personal_website/',
 };
 
 export default nextConfig;
