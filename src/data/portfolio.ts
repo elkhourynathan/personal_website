@@ -11,15 +11,14 @@ export const portfolioData: Portfolio[] = [
   {
     title: "Machine Learning UFC Predictor",
     description:
-      "Engineered features and developed an ensemble ML model (XGBoost + Logistic Regression) on historical fight data, achieving 86% accuracy in winner prediction, deployed with a ReactJS frontend and Flask backend for real-time predictions.",
+      "Engineered features and built an ensemble ML model (XGBoost + Logistic Regression) on historical fight data, deployed via ReactJS + Flask, delivering real time predictions with 86% accuracy",
     technologies: ["Pandas", "Scikit-learn", "SQL", "Flask", "ReactJS"],
-    // projectUrl: "https://ufc-fight-pred-00326a93d210.herokuapp.com/",
     codeUrl: "https://github.com/elkhourynathan/fight_predictor",
   },
   {
     title: "Computer Vision Poker Game Theory Optimizer",
     description:
-      "Built YOLOv8+ByteTrack card tracking pipeline that streams detections into Monte Carlo simulations to compute win odds and optimal next move (fold / call / raise).",
+      "Built YOLOv8+ByteTrack card tracking pipeline that streams detections into Monte Carlo simulations to compute win odds and optimal next move (fold / call / raise)",
     technologies: ["Python", "Ultralytics", "Supervision", "OpenCV"],
     codeUrl: "https://github.com/elkhourynathan/poker_game_theory_optimizer",
   },
