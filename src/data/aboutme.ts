@@ -29,7 +29,7 @@ export const aboutMe: AboutMe = {
   githubUsername: "elkhourynathan",
   linkedinUsername: "nathanelkhoury",
   // blogUrl: "", // Optionally add a blog URL
-  cvUrl: "/nelkhoury_resume_2025.pdf", // Link to uploaded CV
+  cvUrl: "/personal_website/nelkhoury_resume_2025.pdf", // Link to uploaded CV
   // googleScholarUrl: "", // Optionally add Google Scholar if desired
   // twitterUsername: "", // Optionally add Twitter if desired
   // institutionUrl: "https://carleton.ca",
