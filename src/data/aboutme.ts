@@ -20,7 +20,7 @@ export interface AboutMe {
 
 export const aboutMe: AboutMe = {
   name: "Nathan El-Khoury",
-  title: "Honours BCS. of Computer Science; Math Minor; AI & ML Stream",
+  title: "Honours BCS. of Computer Science; AI & ML Stream",
   institution: "Carleton University",
   description:
     `I'm a focused software engineer with a passion for AI, machine learning, and building technology that solves real-world problems. My skills have been shaped by impactful projects and internships across ML and full-stack development. Outside of tech, I'm interested in finance, reading, Muay Thai, and lifting weights.`,
