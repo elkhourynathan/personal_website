@@ -19,7 +19,8 @@ export const experienceData: Experience[] = [
     bulletPoints: [
       "Led development of a multi-agent LLM compliance system converting natural language queries into on-demand visual reports for 10,000+ customers, cutting delivery time from weeks to under 30s",
       "Orchestrated a LangGraph workflow that uses OpenAI APIs for NLP, MCP data retrieval, and LLM-based visualization, auto-generating PDF reports and autonomously resolving 90% of user queries",
-      "Built MCP servers and a multi-server router mapping intents to 4 MCP servers and 60 APIs with 95% accuracy"
+      "Built MCP servers and a multi-server router mapping intents to 4 MCP servers and 60 APIs with 95% accuracy",
+      "Transformed raw JSON into an in-memory relational database with Pandas and SQL, enabling an LLM SQL agent to fetch visualization data in under 4 seconds and reduce context windows by 80%"
     ],
   },
   {
