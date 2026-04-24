@@ -13,8 +13,15 @@ import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
 
 export default function Home() {
+  // Start section reveal delays after the sidebar (1) + about (2), so sections begin at step 3.
+  let revealStep = 2;
+  const nextRevealStep = () => {
+    revealStep += 1;
+    return Math.min(revealStep, 7);
+  };
+
   return (
-    <div className="min-h-screen bg-[#FFFCF8]">
+    <div className="min-h-screen bg-[#FFFCF8] dark:bg-[#17140f]">
       {/* Don't have a great call on whether max-w-screen-xl is better */}
       <div className="max-w-screen-lg mx-auto px-8 py-24">
         {/* Grid Layout */}
@@ -22,7 +29,7 @@ export default function Home() {
           {/* Left Column - Fixed Info */}
           <div className="col-span-12 md:col-span-4 space-y-12 mb-8 md:mb-0">
             {/* Profile */}
-            <div className="md:sticky top-12 space-y-8">
+            <div className="md:sticky top-12 space-y-8" data-reveal="1">
               <ProfileSection aboutMe={aboutMe} />
             </div>
           </div>
@@ -31,9 +38,9 @@ export default function Home() {
           <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-24">
             {/* About section is typically first */}
             {aboutMe.description && (
-              <section>
+              <section data-reveal="2">
                 <p
-                  className="font-serif text-sm leading-relaxed text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600"
+                  className="font-serif text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 [&_a]:underline [&_a]:text-zinc-900 [&_a]:dark:text-zinc-100 [&_a:hover]:text-zinc-600 [&_a:hover]:dark:text-zinc-300"
                   dangerouslySetInnerHTML={{ __html: aboutMe.description }}
                 />
               </section>
@@ -46,7 +53,7 @@ export default function Home() {
                 case Section.News:
                   return (
                     newsData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} data-reveal={nextRevealStep()}>
                         <h2 className="font-serif text-l mb-12 tracking-wide uppercase">
                           News
                         </h2>
@@ -63,8 +70,8 @@ export default function Home() {
                 case Section.Education:
                   return (
                     educationData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="font-serif text-zinc-700 mb-12 tracking-wide uppercase">
+                      <section key={sectionName} data-reveal={nextRevealStep()}>
+                        <h2 className="font-serif text-zinc-700 dark:text-zinc-300 mb-12 tracking-wide uppercase">
                           Education
                         </h2>
                         <div className="space-y-12">
@@ -78,16 +85,16 @@ export default function Home() {
                 case Section.Publication:
                   return (
                     publicationData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} data-reveal={nextRevealStep()}>
                         <h2 className="font-serif text-l mb-12 tracking-wide uppercase">
-                          Publications
+                          Research
                         </h2>
                         <div className="space-y-12">
                           {publicationData.map((publication, index) => (
                             <div key={index}>
                               <PublicationEntry publication={publication} />
                               {index < publicationData.length - 1 && (
-                                <div className="h-px bg-zinc-200 my-8" />
+                                <div className="h-px bg-zinc-200 dark:bg-zinc-800 my-8" />
                               )}
                             </div>
                           ))}
@@ -98,7 +105,7 @@ export default function Home() {
                 case Section.Experience:
                   return (
                     experienceData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} data-reveal={nextRevealStep()}>
                         <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                           Experience
                         </h2>
@@ -116,7 +123,7 @@ export default function Home() {
                 case Section.Portfolio:
                   return (
                     portfolioData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} data-reveal={nextRevealStep()}>
                         <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
                           Portfolio
                         </h2>

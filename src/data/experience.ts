@@ -12,59 +12,55 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
-    date: "May 2025 - Present",
-    title: "Machine Learning Engineer Intern",
-    company: "Trend Micro - Reports Team",
-    technologies: "Python, FastAPI, Flask, LangGraph",
-    bulletPoints: [
-      "Led development of a multi-agent LLM compliance system converting natural language queries into on-demand visual reports for 10,000+ customers, cutting delivery time from weeks to under 30s",
-      "Orchestrated a LangGraph workflow that uses OpenAI APIs for NLP, MCP data retrieval, and LLM-based visualization, auto-generating PDF reports and autonomously resolving 90% of user queries",
-      "Built MCP servers and a multi-server router mapping intents to 4 MCP servers and 60 APIs with 95% accuracy",
-      "Ingested raw JSON into an in-memory relational database with Pandas and SQL, enabling an LLM SQL agent to fetch visualization data in under 4 seconds and reduce context windows by 80%"
-    ],
-  },
-  {
-    date: "Sept 2024 - May 2025",
-    title: "Machine Learning Engineer Intern",
+    date: "Feb 2026 - Present",
+    title: "AI Engineer",
     company: "J-Squared Technologies - FALC AI Team",
-    technologies: "Python, PyTorch",
+    technologies: "Python, LangGraph, FastAPI, Next.js, Postgres",
     bulletPoints: [
-      "Built a Python synthetic data framework, boosting data variety, raising model accuracy 25% and cutting false positives 30%",
-      "Engineered a multi-object tracking evaluation pipeline with dynamic ReID in Python, computing MOTA/HOTA and IDF1 metrics for granular model performance insight",
-      "Developed a CNN-LSTM rock fall classifier in Pytorch, achieving 92% accuracy under varying environmental conditions"
+      "Built and shipped an internal agentic platform used across teams to run complex multi-agent workflows, with typed agent contracts, per-agent MCP scope enforcement, budget + access guardrails, and a two-tier kill switch",
+      "Eliminated data loss on mid-run failures by designing durable workflow orchestration with crash-safe checkpointing and human-in-the-loop interrupts, so runs resume exactly where they left off after hub restarts",
+      "Cut candidate screening from days to minutes and saved recruiters hours per role with a production AI system that has ranked 2000+ resumes via a novel two-track engine combining LLM keyword confidence scoring with qualitative evaluation"
     ],
   },
   {
-    date: "May 2024 - Sept 2024",
+    date: "May 2025 - August 2025",
     title: "Software Engineer Intern",
-    company: "J-Squared Technologies - FALC AI Team",
-    technologies: "Python, Typescript, NextJS, NestJS",
+    company: "Trend AI - Reports Team",
+    technologies: "Python, FastAPI, LangGraph, MCP",
     bulletPoints: [
-      "Optimized computer vision pipelines for edge devices by introducing parallel computing, increasing FPS by 30%",
-      "Developed a real-time video analytics interface in NestJS/Next.js with AWS S3 integration, decreasing latency by 3s and scaling concurrency 5x for ML-powered security systems",
-      "Led development of a rockfall classification system and ETL pipeline; live conference demos secured $500k+ in contracts"
+      "Led development of a multi-agent LLM compliance system converting natural language queries into on-demand visual reports for enterprise customers, cutting delivery time from weeks to under 30s",
+      "Autonomously resolved 90% of user queries by orchestrating a LangGraph workflow spanning NLP, MCP-based data retrieval across 4 servers and 60 APIs, and LLM-driven visualization with auto-generated PDF output",
+      "Ingested raw JSON into an in-memory relational database with Pandas and SQL, enabling an LLM-SQL agent to fetch visualization data in under 4s and reduce context windows by 80%"
+    ],
+  },
+  {
+    date: "May 2024 - May 2025",
+    title: "Machine Learning Engineer Intern",
+    company: "J-Squared Technologies - FALC AI Team",
+    technologies: "Python, PyTorch, TypeScript, Next.js, NestJS",
+    bulletPoints: [
+      "Secured $100k+ in contracts through live conference demos of a CNN-LSTM rockfall classification system achieving 92% accuracy under varying environmental conditions, built end-to-end from ETL pipeline to deployed model",
+      "Boosted model accuracy 25% and cut false positives 30% by building a Python synthetic data generation framework that expanded training data variety for the computer vision team"
     ],
   },
   {
     date: "Sept 2023 - Dec 2023",
     title: "Software Engineer Intern",
     company: "Apption Software - Datahunter AI Team",
-    technologies: "C#, Python",
+    technologies: "C#, Python, Blazor",
     bulletPoints: [
-      "Implemented NLP-driven keyword extraction using TF-IDF and word co-occurrence, boosting enterprise processing 5×",
-      "Architected the Datahunter Query Language using a customized command-pattern backend and integrated it into the Blazor frontend, enabling complex user queries while accelerating resolution time by 200%",
-      "Overhauled the data catalog pipeline in Databricks, resulting in secure and automated data exports to Azure storage"
+      "Architected the Datahunter Query Language using a command-pattern backend integrated into the Blazor frontend, accelerating user query resolution time by 200%",
+      "Boosted enterprise document processing throughput 5x by implementing NLP-driven keyword extraction with TF-IDF and word co-occurrence analysis"
     ],
   },
   {
     date: "May 2023 - Aug 2023",
     title: "Software Engineer Intern",
     company: "Starvoy Technologies - Hardware Team",
-    technologies: "Python, C++, Typescript",
+    technologies: "Python, C++, TypeScript",
     bulletPoints: [
-      "Developed an SVM-based anomaly detection system using k-fold cross-validation, achieving 98% accuracy and reducing manual testing time by 30% in optical transceiver quality assurance",
-      "Automated optical tranceiver report generation using LLM pipelines, cutting manual effort by 15 hours/week",
-      "Built a ReactJS/Flask dashboard for hardware control, real-time diagnostics, and automated reports to unify workflows"
+      "Achieved 98% accuracy and cut manual QA time 30% by developing an SVM-based anomaly detection system with k-fold cross-validation for optical transceiver testing",
+      "Saved 15 engineering hours/week by automating optical transceiver report generation with LLM pipelines, replacing a manual reporting workflow"
     ],
   },
 ];

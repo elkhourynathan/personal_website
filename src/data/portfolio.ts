@@ -9,16 +9,28 @@ export interface Portfolio {
 
 export const portfolioData: Portfolio[] = [
   {
+    title: "Retail Trading Journaling Platform",
+    description:
+      "Full-stack trading journal built for data-driven retail traders — customizable dashboards, granular trade tagging, and analytics aimed at helping traders refine their edge. Extended with agentic daily market debriefs and a personalized AI coach that analyzes user trade history to surface behavioral patterns and actionable feedback. Currently serving a small private user base.",
+    technologies: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "LangGraph"],
+  },
+  {
+    title: "Librarian — Personal Agentic Knowledge System",
+    description:
+      "Obsidian-style web client paired with a Librarian agent that reads, organizes, and surfaces notes on demand, with Speechify for text-to-speech playback.",
+    technologies: ["LangGraph", "Next.js", "TypeScript", "Speechify"],
+  },
+  {
     title: "Machine Learning UFC Predictor",
     description:
-      "Engineered features and built an ensemble ML model (XGBoost + Logistic Regression) on historical fight data, deployed via ReactJS + Flask, delivering real time predictions with 86% accuracy",
+      "Engineered features and trained an ensemble ML model (XGBoost + Logistic Regression) on historical fight data, deployed via ReactJS + Flask for real-time predictions at 86% accuracy",
     technologies: ["Pandas", "Scikit-learn", "SQL", "Flask", "ReactJS"],
     codeUrl: "https://github.com/elkhourynathan/fight_predictor",
   },
   {
     title: "Computer Vision Poker Game Theory Optimizer",
     description:
-      "Built YOLOv8+ByteTrack card tracking pipeline that streams detections into Monte Carlo simulations to compute win odds and optimal next move (fold / call / raise)",
+      "Built a YOLOv8 + ByteTrack card tracking pipeline streaming detections into Monte Carlo simulations to compute win odds and recommend optimal moves (fold / call / raise)",
     technologies: ["Python", "Ultralytics", "Supervision", "OpenCV"],
     codeUrl: "https://github.com/elkhourynathan/poker_game_theory_optimizer",
   },

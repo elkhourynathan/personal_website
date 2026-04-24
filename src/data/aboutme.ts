@@ -36,7 +36,7 @@ export const aboutMe: AboutMe = {
   // altName: "",
   // secretDescription: "I like dogs.",
   // website: "https://nathanelkhoury.vercel.app/", // Uncomment to show website
-  skills: `<b>Languages:</b> Python, TypeScript, C++, C#, Java, JavaScript, SQL, Bash, HTML, CSS<br/>
-<b>Technologies:</b> PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, ReactJS, NestJS, Next.js, Flask, .NET, Blazor, Node.js<br/>
-<b>Databases/Tools:</b> MySQL, MongoDB, FAISS, Chroma, PostgreSQL, Git, AWS, Azure, Docker, Kubernetes, Linux, Unix`,
+  skills: `<b>Languages:</b> Python, TypeScript, C++, C#, Java, SQL, Bash, HTML, CSS<br/>
+<b>AI / ML:</b> LangGraph, LangChain, PyTorch, TensorFlow, Scikit-learn, OpenAI API, MCP, Pydantic, Pandas, NumPy<br/>
+<b>Frameworks / Infra:</b> FastAPI, Flask, NestJS, Next.js, Node.js, .NET, PostgreSQL, MongoDB, FAISS, Docker, Kubernetes, AWS, Linux`,
 };
