@@ -5,7 +5,7 @@ import { Moon, Sun } from "lucide-react";
 
 const SECTIONS = [
   { id: "log",       label: "experience", ref: "#field-log" },
-  { id: "stack",     label: "stack",      ref: "#stack" },
+  { id: "skills",    label: "skills",     ref: "#skills" },
   { id: "projects",  label: "projects",   ref: "#projects" },
   { id: "papers",    label: "papers",     ref: "#papers" },
   { id: "education", label: "education",  ref: "#education" },
