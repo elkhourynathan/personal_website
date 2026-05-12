@@ -8,11 +8,6 @@ export function Hero() {
         <div className="grid grid-cols-12 gap-8 md:gap-12 items-start">
           {/* Left — identity */}
           <div className="col-span-12 md:col-span-7" data-reveal="1">
-            <div className="text-[11px] text-subtle mb-6 flex items-center gap-3">
-              <span className="dot" />
-              <span>open to new-grad ai/ml roles — starting summer 2026</span>
-            </div>
-
             <h1 className="text-[clamp(36px,5vw,68px)] leading-[1.05] tracking-[-0.02em] text-foreground">
               {aboutMe.name}
             </h1>

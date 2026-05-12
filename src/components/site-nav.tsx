@@ -73,11 +73,6 @@ export function SiteNav() {
 
           {/* Right */}
           <div className="ml-auto flex items-center gap-4 text-[11px] text-muted">
-            <span className="hidden md:inline-flex items-center gap-2">
-              <span className="dot" />
-              <span>available</span>
-            </span>
-            <span className="hidden lg:inline text-subtle">·</span>
             <span className="hidden lg:inline">ott {time}</span>
             <button
               onClick={toggle}

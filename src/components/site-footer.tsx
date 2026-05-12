@@ -63,10 +63,6 @@ export function SiteFooter() {
               <div>eastern (utc−05)</div>
               <div className="text-subtle">auth</div>
               <div>canada · us (tn eligible)</div>
-              <div className="text-subtle">status</div>
-              <div className="text-foreground inline-flex items-center gap-2">
-                <span className="dot" /> open · new-grad ai/ml · 2026
-              </div>
             </div>
           </div>
         </div>
