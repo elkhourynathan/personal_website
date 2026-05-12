@@ -9,13 +9,16 @@ import { EducationEntry } from "@/components/education-entry";
 import { educationData } from "@/data/education";
 import { SkillsSection } from "@/components/skills-section";
 
-function SectionHeading({ n, label, count }: { n: string; label: string; count?: number }) {
+function SectionHeading({ label, count }: { label: string; count?: number }) {
   return (
     <div
       className="flex items-baseline gap-3 pb-3 border-b mb-2"
       style={{ borderColor: "var(--line)" }}
     >
-      <span className="text-accent text-[12px]">§ {n}</span>
+      <span
+        className="inline-block h-[1px] w-6"
+        style={{ background: "var(--accent)" }}
+      />
       <h2 className="text-[15px] text-foreground">{label}</h2>
       <span className="flex-1 rule" />
       {typeof count === "number" && (
@@ -33,7 +36,7 @@ export default function Home() {
       {/* WORK */}
       <section id="field-log" className="relative">
         <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
-          <SectionHeading n="01" label="experience" count={experienceData.length} />
+          <SectionHeading label="experience" count={experienceData.length} />
           <div>
             {experienceData.map((e, i) => (
               <ExperienceEntry
@@ -52,7 +55,7 @@ export default function Home() {
       {/* PROJECTS */}
       <section id="projects" className="relative">
         <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
-          <SectionHeading n="03" label="projects" count={portfolioData.length} />
+          <SectionHeading label="projects" count={portfolioData.length} />
           <div>
             {portfolioData.map((p) => (
               <PortfolioEntry key={p.title} portfolio={p} />
@@ -65,7 +68,7 @@ export default function Home() {
       {publicationData.length > 0 && (
         <section id="papers" className="relative">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
-            <SectionHeading n="04" label="papers" count={publicationData.length} />
+            <SectionHeading label="papers" count={publicationData.length} />
             <div>
               {publicationData.map((p, i) => (
                 <PublicationEntry key={i} publication={p} />
@@ -79,7 +82,7 @@ export default function Home() {
       {educationData.length > 0 && (
         <section id="education" className="relative">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
-            <SectionHeading n="05" label="education" />
+            <SectionHeading label="education" />
             <div>
               {educationData.map((e, i) => (
                 <EducationEntry key={i} education={e} />

@@ -50,7 +50,7 @@ export function SkillsSection() {
   return (
     <section id="skills" className="relative">
       <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
-        <SectionHeading n="02" label="skills" />
+        <SectionHeading label="skills" />
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {GROUPS.map((g) => {
@@ -98,13 +98,16 @@ export function SkillsSection() {
   );
 }
 
-function SectionHeading({ n, label }: { n: string; label: string }) {
+function SectionHeading({ label }: { label: string }) {
   return (
     <div
       className="flex items-baseline gap-3 pb-3 border-b mb-6"
       style={{ borderColor: "var(--line)" }}
     >
-      <span className="text-accent text-[12px]">§ {n}</span>
+      <span
+        className="inline-block h-[1px] w-6"
+        style={{ background: "var(--accent)" }}
+      />
       <h2 className="text-[15px] text-foreground">{label}</h2>
       <span className="flex-1 rule" />
     </div>

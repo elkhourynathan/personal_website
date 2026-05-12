@@ -10,7 +10,10 @@ export function SiteFooter() {
     >
       <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-12 md:py-16">
         <div className="flex items-baseline gap-3 pb-3 border-b mb-6" style={{ borderColor: "var(--line)" }}>
-          <span className="text-accent text-[12px]">§ 06</span>
+          <span
+            className="inline-block h-[1px] w-6"
+            style={{ background: "var(--accent)" }}
+          />
           <h2 className="text-[15px] text-foreground">contact</h2>
           <span className="flex-1 rule" />
         </div>

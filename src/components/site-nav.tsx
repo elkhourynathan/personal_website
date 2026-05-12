@@ -58,14 +58,13 @@ export function SiteNav() {
 
           {/* Center: section list — like editor tabs */}
           <ul className="hidden md:flex items-center text-[11.5px]">
-            {SECTIONS.map((s, i) => (
+            {SECTIONS.map((s) => (
               <li key={s.id} className="flex items-center">
                 <a
                   href={s.ref}
                   className="px-3 py-1 text-muted hover:text-foreground transition-colors"
                 >
-                  <span className="text-subtle">§{(i + 1).toString().padStart(2, "0")}</span>
-                  <span className="ml-2">{s.label}</span>
+                  {s.label}
                 </a>
               </li>
             ))}
