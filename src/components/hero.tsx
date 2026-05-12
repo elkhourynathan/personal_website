@@ -73,17 +73,16 @@ export function Hero() {
 
               <pre className="text-[12px] leading-[1.75] whitespace-pre-wrap text-muted m-0 font-mono">
 <span className="text-subtle">$ </span><span className="text-accent">cat now.txt</span>{`
-`}<span className="text-foreground">shipping</span> internal agentic platform
-typed agent contracts · per-agent mcp scope
-crash-safe checkpoints · human-in-the-loop{`
+`}<span className="text-foreground">shipping</span>{` agentic platforms
+and production ML for defense
 
-`}<span className="text-subtle">$ </span><span className="text-accent">stack</span>{`
-`}python · typescript · langgraph · fastapi
-pytorch · next.js · postgres · mcp · docker{`
+`}<span className="text-subtle">$ </span><span className="text-accent">interests</span>{`
+ML · Agentic AI · Predictive Modeling
+Computer Vision · Finance · Reading
 
 `}<span className="text-subtle">$ </span><span className="text-accent">contact</span>{`
-`}{aboutMe.email}
-ottawa · ca/us (tn) authorized{`
+${aboutMe.email}
+ottawa · ca/us (tn) authorized
 
 `}<span className="text-subtle">$ </span><span className="caret" />
               </pre>
