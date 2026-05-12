@@ -12,6 +12,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        surface: "var(--surface)",
+        surface2: "var(--surface-2)",
+        line: "var(--line)",
+        muted: "var(--muted)",
+        subtle: "var(--subtle)",
+        accent: "var(--accent)",
+        warn: "var(--warn)",
+      },
+      fontFamily: {
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
       },
     },
   },

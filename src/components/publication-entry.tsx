@@ -1,94 +1,48 @@
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, FileText, Code2 } from "lucide-react";
 import { Publication } from "@/data/publication";
 
-export function PublicationEntry({
-  publication,
-}: {
-  publication: Publication;
-}) {
+export function PublicationEntry({ publication }: { publication: Publication }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-6">
-      {publication.imageUrl && (
-        <div className="w-full sm:w-1/4 min-w-[160px] relative">
-          <Image
-            src={publication.imageUrl}
-            alt={publication.title}
-            width={160}
-            height={200}
-            className="rounded-lg transition-all duration-300"
-          />
-        </div>
-      )}
-      <div className="flex flex-col flex-1">
-        <div className="flex flex-row gap-3 items-center mb-2 flex-wrap">
-          <p className="text-xs text-zinc-500 dark:text-zinc-500">
-            {publication.conference} {publication.year}
-          </p>
-          {publication.type && (
-            <span className="text-[10px] uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700 rounded-full px-2 py-0.5">
-              {publication.type}
-            </span>
-          )}
-          {publication.award && (
-            <div className="group flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 dark:from-amber-950/40 dark:to-rose-950/40 rounded-md items-center shadow-md border border-amber-100/50 dark:border-amber-900/30 relative overflow-hidden hover:rotate-1 transition-all duration-300">
-              <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/90 dark:via-amber-200/20 to-transparent" />
-              <p className="text-xs text-amber-700 dark:text-amber-300 font-medium relative">
-                {publication.award}
-              </p>
-            </div>
-          )}
-        </div>
-        <h3 className="font-serif text-md mb-3 text-zinc-900 dark:text-zinc-100">
+    <article className="data-row">
+      {/* Left — venue + year */}
+      <div className="text-[12px] leading-snug">
+        <div className="text-foreground">{publication.year}</div>
+        <div className="text-muted">{publication.type ?? "paper"}</div>
+      </div>
+
+      <div>
+        <h3 className="text-[17px] md:text-[18px] text-foreground font-medium tracking-[-0.005em] text-balance leading-snug">
           {publication.title}
         </h3>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
-          {publication.authors}
+        <p className="mt-1.5 text-[12.5px] text-muted">
+          {publication.authors} · {publication.conference}
+          {publication.award && (
+            <>
+              <span className="text-subtle"> · </span>
+              <span className="text-accent">{publication.award}</span>
+            </>
+          )}
         </p>
-        <div className="flex flex-row gap-6">
+
+        {publication.tldr && (
+          <p className="mt-3 text-[13.5px] leading-[1.65] text-muted max-w-[760px]">
+            <span className="text-accent">tl;dr</span> {publication.tldr}
+          </p>
+        )}
+
+        <div className="mt-3 flex flex-wrap gap-2">
           {publication.paperUrl && (
-            <a
-              href={publication.paperUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Paper</span>
+            <a href={publication.paperUrl} className="btn" target="_blank" rel="noopener noreferrer">
+              <FileText size={11} /> paper <ArrowUpRight size={10} />
             </a>
           )}
           {publication.codeUrl && (
-            <a
-              href={publication.codeUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Code</span>
-            </a>
-          )}
-          {publication.bibtex && (
-            <a
-              href={publication.bibtex}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">BibTeX</span>
+            <a href={publication.codeUrl} className="btn" target="_blank" rel="noopener noreferrer">
+              <Code2 size={11} /> code
             </a>
           )}
         </div>
-        {publication.tldr && (
-          <p className="text-sm italic text-zinc-600 dark:text-zinc-400 mt-4">
-            {publication.tldr}
-          </p>
-        )}
       </div>
-    </div>
+    </article>
   );
 }

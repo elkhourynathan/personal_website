@@ -1,83 +1,63 @@
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import { Portfolio } from "@/data/portfolio";
 
 export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-6">
-      {portfolio.imageUrl && (
-        <div className="w-1/4 min-w-[160px] relative">
-          <Image
-            src={portfolio.imageUrl}
-            alt={portfolio.title}
-            width={160}
-            height={200}
-            className="rounded-lg"
-          />
-        </div>
-      )}
-      <div className="flex flex-col flex-1">
-        <h3 className="font-serif text-md mb-3 text-zinc-900 dark:text-zinc-100">
+    <article className="data-row group">
+      {/* Left — links */}
+      <div className="flex md:flex-col gap-3 md:gap-1 text-[12px]">
+        {portfolio.projectUrl && (
+          <a
+            href={portfolio.projectUrl}
+            className="text-muted hover:text-accent inline-flex items-center gap-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            live <ArrowUpRight size={10} />
+          </a>
+        )}
+        {portfolio.codeUrl && (
+          <a
+            href={portfolio.codeUrl}
+            className="text-muted hover:text-accent inline-flex items-center gap-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github size={10} /> code
+          </a>
+        )}
+      </div>
+
+      {/* Right — content */}
+      <div>
+        <h3 className="text-[17px] md:text-[18px] text-foreground font-medium tracking-[-0.005em]">
           {portfolio.projectUrl ? (
             <a
               href={portfolio.projectUrl}
-              className="group inline-flex items-center gap-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors duration-300"
+              className="inline-flex items-baseline gap-2 hover:text-accent transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {portfolio.title}
-              <ArrowUpRight
-                size={16}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
+              <ArrowUpRight size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
             </a>
           ) : (
             portfolio.title
           )}
         </h3>
 
-        <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">
+        <p className="mt-2 text-[13.5px] leading-[1.65] text-muted max-w-[760px]">
           {portfolio.description}
         </p>
 
-        {portfolio.technologies && (
-          <div className="flex gap-2 mb-4 flex-wrap">
-            {portfolio.technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="text-xs text-zinc-600 dark:text-zinc-300 px-2 py-1 bg-zinc-100 dark:bg-zinc-800/70 rounded-full"
-              >
-                {tech}
-              </span>
+        {portfolio.technologies && portfolio.technologies.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {portfolio.technologies.map((t, i) => (
+              <span key={i} className="chip">{t}</span>
             ))}
           </div>
         )}
-
-        <div className="flex gap-6">
-          {portfolio.projectUrl && (
-            <a
-              href={portfolio.projectUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Project</span>
-            </a>
-          )}
-          {portfolio.codeUrl && (
-            <a
-              href={portfolio.codeUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Code</span>
-            </a>
-          )}
-        </div>
       </div>
-    </div>
+    </article>
   );
 }

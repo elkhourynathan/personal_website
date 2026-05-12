@@ -1,147 +1,93 @@
-import { EducationEntry } from "@/components/education-entry";
-import { educationData } from "@/data/education";
-import { PublicationEntry } from "@/components/publication-entry";
-import { publicationData } from "@/data/publication";
-import { ProfileSection } from "@/components/profile-section";
-import { aboutMe } from "@/data/aboutme";
-import { NewsEntry } from "@/components/news-entry";
-import { newsData } from "@/data/news";
+import { Hero } from "@/components/hero";
 import { ExperienceEntry } from "@/components/experience-entry";
 import { experienceData } from "@/data/experience";
 import { PortfolioEntry } from "@/components/portfolio-entry";
 import { portfolioData } from "@/data/portfolio";
-import { sectionOrder, Section } from "@/data/section-order";
+import { PublicationEntry } from "@/components/publication-entry";
+import { publicationData } from "@/data/publication";
+import { EducationEntry } from "@/components/education-entry";
+import { educationData } from "@/data/education";
+import { SkillsSection } from "@/components/skills-section";
+
+function SectionHeading({ n, label, count }: { n: string; label: string; count?: number }) {
+  return (
+    <div
+      className="flex items-baseline gap-3 pb-3 border-b mb-2"
+      style={{ borderColor: "var(--line)" }}
+    >
+      <span className="text-accent text-[12px]">§ {n}</span>
+      <h2 className="text-[15px] text-foreground">{label}</h2>
+      <span className="flex-1 rule" />
+      {typeof count === "number" && (
+        <span className="text-[11px] text-subtle">{count.toString().padStart(2, "0")} entries</span>
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
-  // Start section reveal delays after the sidebar (1) + about (2), so sections begin at step 3.
-  let revealStep = 2;
-  const nextRevealStep = () => {
-    revealStep += 1;
-    return Math.min(revealStep, 7);
-  };
-
   return (
-    <div className="min-h-screen bg-[#FFFCF8] dark:bg-[#17140f]">
-      {/* Don't have a great call on whether max-w-screen-xl is better */}
-      <div className="max-w-screen-lg mx-auto px-8 py-24">
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-2">
-          {/* Left Column - Fixed Info */}
-          <div className="col-span-12 md:col-span-4 space-y-12 mb-8 md:mb-0">
-            {/* Profile */}
-            <div className="md:sticky top-12 space-y-8" data-reveal="1">
-              <ProfileSection aboutMe={aboutMe} />
-            </div>
-          </div>
+    <>
+      <Hero />
 
-          {/* Right Column - Scrolling Content */}
-          <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-24">
-            {/* About section is typically first */}
-            {aboutMe.description && (
-              <section data-reveal="2">
-                <p
-                  className="font-serif text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 [&_a]:underline [&_a]:text-zinc-900 [&_a]:dark:text-zinc-100 [&_a:hover]:text-zinc-600 [&_a:hover]:dark:text-zinc-300"
-                  dangerouslySetInnerHTML={{ __html: aboutMe.description }}
-                />
-              </section>
-            )}
-
-            {/* Map through sectionOrder to render sections in correct order */}
-            {sectionOrder.map((sectionName) => {
-              // Most of this is redundant... but in case it needs to be unique.
-              switch (sectionName) {
-                case Section.News:
-                  return (
-                    newsData.length > 0 && (
-                      <section key={sectionName} data-reveal={nextRevealStep()}>
-                        <h2 className="font-serif text-l mb-12 tracking-wide uppercase">
-                          News
-                        </h2>
-                        <div className="space-y-12">
-                          {newsData.map((news, index) => (
-                            <div key={index}>
-                              <NewsEntry news={news} />
-                            </div>
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Education:
-                  return (
-                    educationData.length > 0 && (
-                      <section key={sectionName} data-reveal={nextRevealStep()}>
-                        <h2 className="font-serif text-zinc-700 dark:text-zinc-300 mb-12 tracking-wide uppercase">
-                          Education
-                        </h2>
-                        <div className="space-y-12">
-                          {educationData.map((education, index) => (
-                            <EducationEntry key={index} education={education} />
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Publication:
-                  return (
-                    publicationData.length > 0 && (
-                      <section key={sectionName} data-reveal={nextRevealStep()}>
-                        <h2 className="font-serif text-l mb-12 tracking-wide uppercase">
-                          Research
-                        </h2>
-                        <div className="space-y-12">
-                          {publicationData.map((publication, index) => (
-                            <div key={index}>
-                              <PublicationEntry publication={publication} />
-                              {index < publicationData.length - 1 && (
-                                <div className="h-px bg-zinc-200 dark:bg-zinc-800 my-8" />
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Experience:
-                  return (
-                    experienceData.length > 0 && (
-                      <section key={sectionName} data-reveal={nextRevealStep()}>
-                        <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
-                          Experience
-                        </h2>
-                        <div className="space-y-12">
-                          {experienceData.map((experience, index) => (
-                            <ExperienceEntry
-                              key={index}
-                              experience={experience}
-                            />
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Portfolio:
-                  return (
-                    portfolioData.length > 0 && (
-                      <section key={sectionName} data-reveal={nextRevealStep()}>
-                        <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
-                          Portfolio
-                        </h2>
-                        <div className="space-y-12">
-                          {portfolioData.map((portfolio, index) => (
-                            <PortfolioEntry key={index} portfolio={portfolio} />
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                default:
-                  return null;
-              }
-            })}
+      {/* WORK */}
+      <section id="field-log" className="relative">
+        <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
+          <SectionHeading n="01" label="experience" count={experienceData.length} />
+          <div>
+            {experienceData.map((e, i) => (
+              <ExperienceEntry
+                key={i}
+                experience={e}
+                isCurrent={i === 0}
+              />
+            ))}
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* STACK */}
+      <SkillsSection />
+
+      {/* PROJECTS */}
+      <section id="projects" className="relative">
+        <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
+          <SectionHeading n="03" label="projects" count={portfolioData.length} />
+          <div>
+            {portfolioData.map((p) => (
+              <PortfolioEntry key={p.title} portfolio={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RESEARCH */}
+      {publicationData.length > 0 && (
+        <section id="papers" className="relative">
+          <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
+            <SectionHeading n="04" label="papers" count={publicationData.length} />
+            <div>
+              {publicationData.map((p, i) => (
+                <PublicationEntry key={i} publication={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* EDUCATION */}
+      {educationData.length > 0 && (
+        <section id="education" className="relative">
+          <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-14 md:py-20">
+            <SectionHeading n="05" label="education" />
+            <div>
+              {educationData.map((e, i) => (
+                <EducationEntry key={i} education={e} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   );
 }

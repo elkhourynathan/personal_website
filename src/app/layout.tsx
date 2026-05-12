@@ -1,25 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { IBM_Plex_Mono, Newsreader, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { aboutMe } from "@/data/aboutme";
 import { customMetadata } from "@/data/title-description";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Body & UI — characterful technical mono.
+const mono = IBM_Plex_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Sans for longer reading paragraphs.
+const sans = IBM_Plex_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// Serif used sparingly — italic accents only, like a stamped insertion.
+const display = Newsreader({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500"],
+  style: ["italic", "normal"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +39,8 @@ export const metadata: Metadata = {
   },
 };
 
-const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches;var d=t?t==='dark':p;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+// Default theme is DARK. Users can switch to light and we remember it.
+const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');var light=t==='light';document.documentElement.classList.toggle('light', light);}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -43,24 +53,11 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased bg-background text-foreground`}
+        className={`${display.variable} ${sans.variable} ${mono.variable} antialiased`}
       >
-        <ThemeToggle />
-        <main className="">{children}</main>
-        <footer className="border-t border-zinc-200 bg-[#FFFCF8] dark:border-zinc-800 dark:bg-[#17140f]">
-          <div className="flex flex-row mx-auto max-w-7xl px-6 py-12 md:flex md:items-start md:justify-between ">
-            <div className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
-              <p>
-                © {new Date().getFullYear()} {aboutMe.name}.
-              </p>
-              {aboutMe.secretDescription && (
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-4">
-                  {aboutMe.secretDescription}
-                </p>
-              )}
-            </div>
-          </div>
-        </footer>
+        <SiteNav />
+        <main>{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

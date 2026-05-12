@@ -1,58 +1,53 @@
 import { Education } from "@/data/education";
 
 export function EducationEntry({ education }: { education: Education }) {
+  const courses = education.relevantCourses
+    ? education.relevantCourses.split(",").map((c) => c.trim())
+    : [];
+
   return (
-    <div>
-      <div className="grid grid-cols-4 gap-x-2 mb-2">
-        <span className="text-xs text-zinc-500 dark:text-zinc-500 mt-1">
-          {education.year}
-        </span>
-        <div className="col-span-3">
-          <h3 className="text-base mb-1 font-serif text-zinc-900 dark:text-zinc-100">
-            {education.institution}
-          </h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            {education.degree}
-          </p>
+    <article className="data-row">
+      <div className="text-[12px] leading-snug text-foreground">{education.year}</div>
+
+      <div>
+        <h3 className="text-[17px] md:text-[18px] text-foreground font-medium tracking-[-0.005em]">
+          {education.institution}
+        </h3>
+        <p className="mt-1.5 text-[13.5px] text-muted">
+          {education.degree}
+          {education.stream && <> · {education.stream}</>}
           {education.gpa && (
-            <p className="text-sm text-zinc-500 dark:text-zinc-500 mt-1">
-              GPA: {education.gpa}
-            </p>
+            <>
+              {" · gpa "}
+              <span className="text-foreground">{education.gpa}</span>
+            </>
           )}
-          {education.stream && (
-            <p className="text-sm text-zinc-500 dark:text-zinc-500 mt-1">
-              Stream: {education.stream}
-            </p>
-          )}
-          {education.advisor && (
-            <p className="text-sm text-zinc-500 dark:text-zinc-500 mt-2 italic">
-              Advisor: {education.advisor}
-            </p>
-          )}
-          {education.thesis && (
-            <p className="text-sm text-zinc-500 dark:text-zinc-500 mt-2 italic">
-              Thesis:{" "}
-              {education.thesisUrl ? (
-                <a
-                  href={education.thesisUrl}
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {education.thesis}
-                </a>
-              ) : (
-                education.thesis
-              )}
-            </p>
-          )}
-          {education.relevantCourses && (
-            <p className="text-xs text-zinc-500 dark:text-zinc-500 mt-2 italic">
-              <b>Relevant Courses:</b> {education.relevantCourses}
-            </p>
-          )}
-        </div>
+        </p>
+
+        {education.thesis && (
+          <p className="mt-2 text-[13px] text-muted">
+            thesis:{" "}
+            {education.thesisUrl ? (
+              <a href={education.thesisUrl} className="link" target="_blank" rel="noopener noreferrer">
+                {education.thesis}
+              </a>
+            ) : (
+              education.thesis
+            )}
+          </p>
+        )}
+        {education.advisor && (
+          <p className="mt-1 text-[13px] text-muted">advisor: {education.advisor}</p>
+        )}
+
+        {courses.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {courses.map((c, i) => (
+              <span key={i} className="chip">{c}</span>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </article>
   );
 }
