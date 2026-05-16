@@ -74,7 +74,8 @@ export function Hero() {
               <pre className="text-[12px] leading-[1.75] whitespace-pre-wrap text-muted m-0 font-mono">
 <span className="text-subtle">$ </span><span className="text-accent">cat now.txt</span>{`
 `}<span className="text-foreground">shipping</span>{` agentic platforms
-and production ML for defense
+and ML solutions at the edge
+for rugged industries — military, aero & mining
 
 `}<span className="text-subtle">$ </span><span className="text-accent">interests</span>{`
 ML · Agentic AI · Predictive Modeling
